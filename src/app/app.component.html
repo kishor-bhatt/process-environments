@@ -1,20 +1,50 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row ml-auto mr-auto">    <h2> Process List  </h2> </div>
+  <div class="row ml-auto mr-auto">
+    <ul class="processes">
+        <li *ngFor="let process of processes" (click)="getProcessInfo(process)">
+        {{process}}
+        </li> 
+    </ul>
+  </div>
 
+  <div *ngIf="showInfo" class="row d-flex flex-column">
+            <div class="row process-info">
+              <label class="col-4">DATABASE_HOST</label>
+              <input type="text" class="col-4" [(ngModel)]="processInfo.DATABASE_HOST" class="col-4" />
+            </div>
+            <div class="row process-info">
+              <label class="col-4">DATABASE_PASSWORD</label>
+              <input type="text" class="col-4" [(ngModel)]="processInfo.DATABASE_PASSWORD" class="col-4" />
+              </div>
+            <div class="row process-info">
+                <label class="col-4">QUEUE_CONNECTION_STRING</label>
+                <input type="text" class="col-4" [(ngModel)]="processInfo.QUEUE_CONNECTION_STRING" class="col-4" />
+            </div>
+            
+            <button type="button" class="btn btn-primary ml-auto mr-auto" (click)="save()"> Save</button>
+  </div>
+  
+  <button type="button" class="btn btn-info" *ngIf="!addNew" (click)="setNew()">Add New Process</button>
+
+  <div *ngIf="addNew" class="row d-flex flex-column"> 
+      <div class="row process-info">
+          <label class="col-4">PROCESS_NAME</label>
+          <input type="text" class="col-4" [(ngModel)]="newProcessInfo.PROCESS_NAME" class="col-4" />
+        </div>
+      <div class="row process-info">
+        <label class="col-4">DATABASE_HOST</label>
+        <input type="text" class="col-4" [(ngModel)]="newProcessInfo.DATABASE_HOST" class="col-4" />
+      </div>
+      <div class="row process-info">
+        <label class="col-4">DATABASE_PASSWORD</label>
+        <input type="text" class="col-4" [(ngModel)]="newProcessInfo.DATABASE_PASSWORD" class="col-4" />
+        </div>
+      <div class="row process-info">
+          <label class="col-4">QUEUE_CONNECTION_STRING</label>
+          <input type="text" class="col-4" [(ngModel)]="newProcessInfo.QUEUE_CONNECTION_STRING" class="col-4" />
+      </div>
+      
+      <button type="button" class="btn btn-primary ml-auto mr-auto" (click)="register()">Register</button>
+  </div>
+</div>

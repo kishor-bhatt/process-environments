@@ -1,0 +1,53 @@
+  h2 {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  body {
+    margin: 2em;
+  }
+  
+  body, input[text], button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .processes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    text-align: center;
+    padding: 2px 0;
+    width: 15em;
+  }
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .processes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .processes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .processes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .processes .text {
+    position: relative;
+    top: -3px;
+  }
+
+  .process-info {
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+  }
